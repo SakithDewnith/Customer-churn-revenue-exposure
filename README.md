@@ -1,4 +1,4 @@
-# Customer Retention & Revenue Exposure Analytics
+# Customer Churn Risk & Revenue Exposure Analytics
 🚀 Live Demo: https://sakith-churn-analysis-dashboard.streamlit.app/
 
 ## Executive Summary
