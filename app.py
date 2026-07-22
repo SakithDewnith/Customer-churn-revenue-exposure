@@ -3,10 +3,6 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-from dotenv import load_dotenv
-from sqlalchemy import create_engine
-from sqlalchemy.exc import SQLAlchemyError
-
 
 
 # =====================================================
@@ -101,35 +97,7 @@ with st.container():
 
 
 # =====================================================
-# DATABASE CONNECTION
-# =====================================================
-
-load_dotenv()
-
-DATABASE_URL = os.getenv("DATABASE_URL")
-
-if DATABASE_URL is None:
-    st.error(
-        "DATABASE_URL not found. Check your .env file."
-    )
-    st.stop()
-
-
-@st.cache_resource
-def get_engine():
-
-    return create_engine(
-        DATABASE_URL,
-        pool_pre_ping=True
-    )
-
-
-engine = get_engine()
-
-
-
-# =====================================================
-# LOAD DATABASE TABLES
+# LOAD TABLES
 # =====================================================
 
 @st.cache_data(ttl=3600)
@@ -137,38 +105,29 @@ def load_tables():
 
     try:
 
-        customers = pd.read_sql(
-            "SELECT * FROM churn_cleaned",
-            engine
+        customers = pd.read_csv(
+            "final csvs/churn_cleaned.csv"
         )
 
-
-        contract = pd.read_sql(
-            "SELECT * FROM contract_analysis",
-            engine
+        contract = pd.read_csv(
+            "final csvs/contract_analysis.csv"
         )
 
-
-        drivers = pd.read_sql(
-            "SELECT * FROM driver_analysis",
-            engine
+        drivers = pd.read_csv(
+            "final csvs/driver_analysis.csv"
         )
 
-
-        future = pd.read_sql(
-            "SELECT * FROM future_revenue_exposure",
-            engine
+        future = pd.read_csv(
+            "final csvs/future_revenue_exposure.csv"
         )
 
-
-    except SQLAlchemyError as e:
+    except Exception as e:
 
         st.error(
-            f"Database loading error: {e}"
+            f"Data loading error: {e}"
         )
 
         st.stop()
-
 
     return customers, contract, drivers, future
 
@@ -182,8 +141,6 @@ df["monthly_charges"] = pd.to_numeric(
     df["monthly_charges"],
     errors="coerce"
 )
-
-
 
 
 
