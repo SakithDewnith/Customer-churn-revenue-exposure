@@ -1,50 +1,71 @@
-# Customer Retention & Churn Risk Analytics for Telecom
-## Executive Summary:
+# Customer Retention & Revenue Exposure Analytics
+🚀 Live Demo: https://sakith-churn-analysis-dashboard.streamlit.app/
 
-Customer churn directly impacts recurring revenue, and the company needs to identify which customer groups contribute most to revenue loss and where retention efforts should be focused. Using SQL and Python, I analyzed 7,043 customer records, segmented customers by contract, tenure, and payment behavior, and performed churn driver analysis to identify high-impact retention opportunities.
+## Executive Summary
 
-The analysis identified Month-to-month customers as the highest-impact segment, accounting for $120.8K in historical monthly revenue loss with a 42.71% churn rate. Further analysis revealed that customers without Online Security and Tech Support were associated with over $102K each in historical monthly revenue loss, while active customers with these risk characteristics represented significant future revenue exposure.
+Customer churn can create significant future revenue risk, but not all customer groups have the same financial impact. This project focuses on identifying where the largest future revenue exposure exists among active customers by analyzing historical churn behaviour and customer characteristics.
 
-Based on these findings, I recommend:
+Using an **end-to-end analytics workflow with SQL, Python, and Streamlit**, I analyzed customer data to estimate potential revenue exposure, identify the highest-risk customer segments, and uncover the factors contributing to revenue risk. The analysis identified **Month-to-month customers as the largest future revenue exposure segment**, with **missing Tech Support and Online Security services as key exposure drivers**.
 
-Increasing adoption of Online Security and Tech Support services among Month-to-month customers.
-Providing incentives to move customers toward longer-term contracts.
-Investigating Fiber optic customer experience issues.
-Implementing targeted retention campaigns for high-risk customer groups.
+Key focus areas include:
 
+- Identifying customer segments with the highest future revenue exposure
+
+- Understanding the main factors contributing to revenue risk
+
+- Prioritizing retention opportunities based on potential business impact
+  
+<br>
+
+Customer Risk Analysis & Retention Workflow:
+  
+<br>
+  <p align="center">
+  <img 
+    width="524" 
+    height="100" 
+    alt="Gemini_Generated_Image_g3te9bg3te9bg3te" 
+    src="https://github.com/user-attachments/assets/24c919d4-67e4-425a-9e02-b8e4f0eb60e8"
+  />
+</p>
+
+<br>
+  
 ## Business Problem:
-Customer retention is essential for this telecom company since recurring customers directly contribute to monthly revenue. Business stakeholders have noticed a high customer churn rate and need to understand which customer groups are driving revenue loss and where retention efforts should be focused.
 
-How can we identify the customer segments contributing the most to churn-related revenue loss, determine the key factors associated with customer attrition, and identify current customers who represent potential future revenue exposure to improve retention strategies?
+Customer churn creates future revenue risk, but not all customer segments have the same financial impact. With limited retention resources, the business needs to identify which active customer segments carry the highest future revenue exposure and what factors drive that risk. How can historical churn behaviour be used to estimate future revenue exposure and prioritize retention efforts where they will have the greatest business impact?
 
 ## Methodology:
-SQL Analysis:Extracted and cleaned customer subscription data.
-Calculated churn rate, customer counts, and monthly recurring revenue impact.
-Segmented customers by contract type, tenure, and payment method.
-Identified the highest-impact customer segments.
-
-Python Analysis:Performed exploratory data analysis using Pandas.
-Analyzed churn rates across service features and payment behavior.
-Evaluated historical revenue loss among churned customers.
-Estimated future revenue exposure among active customers based on historical churn patterns.
+1. SQL queries were used to clean, transform, and analyze customer data from the database.
+2. Python was used for churn analysis, customer segmentation, and revenue exposure estimation.
+3. A Streamlit dashboard was developed to provide visibility into risk segments, churn drivers, and retention opportunities.
 
 ## Skills:
-SQL: Data cleaning, Aggregations, CASE statements, GROUP BY analysis, Customer segmentation, Revenue calculations
+SQL: Data cleaning, joins, filtering, aggregation, analytical queries
 
-Python:Pandas, NumPy, Data transformation, Exploratory data analysis, Customer segmentation, Business impact analysis
+Python: Pandas, customer segmentation, churn analysis, revenue exposure analysis, exploratory data analysis (EDA), data visualization
 
-## Results & Business Recommendations:
-Identified Month-to-month customers as the highest-impact segment, accounting for $120.8K in historical monthly revenue loss with a 42.71% churn rate, making them the primary retention target.
+Streamlit: Dashboard development, KPI reporting, Plotly visualizations, business insights
 
-Found key churn drivers within the priority segment, where customers without Online Security and Tech Support were associated with over $102K each in historical monthly revenue loss, indicating major service adoption gaps.
+## Results:
+The analysis evaluated **7,043 customer records** and identified a **26.5% historical churn rate**, highlighting potential future revenue risk among active customers. By applying historical churn behaviour to the active customer base, the analysis identified **Month-to-month customers as the highest future revenue exposure segment**, with a **42.71% churn rate, 2,220 active customers, and $58K+ projected monthly revenue exposure.**
 
-Estimated future revenue exposure among active customers, identifying $93K+ exposed revenue from customers lacking Tech Support and $91K+ from customers lacking Online Security based on historical churn patterns.
+Further analysis within this priority segment identified customers **without Tech Support ($93K+ projected exposure) and Online Security ($91K+ projected exposure)** as the largest revenue risk drivers. These findings allow retention efforts to be focused on customer groups where reducing churn could have the greatest financial impact.
 
-Recommended targeted retention strategies, including increasing service adoption through Online Security and Tech Support offers, encouraging longer-term contracts, and investigating Fiber optic customer experience issues.
+<br>
+<p align="center">
+  <img 
+    width="600" 
+    height="390" 
+    alt="image" 
+    src="https://github.com/user-attachments/assets/bfd72051-6f91-42f8-b359-b5d5cde2dc38"
+  />
+</p>
+<br>
 
-## Next Steps:
+## Business Recommend actions:
 
-- Develop a churn prediction model to identify individual customer-level churn risk scores.
-- Perform A/B testing on retention offers and service bundle promotions to measure impact on churn reduction.
-- Monitor customer retention metrics after implementing targeted campaigns.
-- Analyze customer feedback and service usage patterns to identify additional churn prevention opportunities.
+- Prioritize retention strategies for high-exposure Month-to-month customers.
+- Test contract upgrade offers to encourage longer-term customer commitment.
+- Test Tech Support and Online Security adoption campaigns for customers with identified service gaps.
+- Measure retention impact through controlled experiments and continuously monitor future revenue exposure trends.
