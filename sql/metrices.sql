@@ -1,3 +1,5 @@
+-- Calculate the headline metrics. Factor screening and category metrics are done in Python.
+
 -- Total customers
 SELECT COUNT(*) AS total_customers
 FROM churn_cleaned;
@@ -7,7 +9,12 @@ SELECT COUNT(*) AS churned_customers
 FROM churn_cleaned
 WHERE churn = 'Yes';
 
--- Churn rate
+-- 3. Active customers
+SELECT COUNT(*) AS active_customers
+FROM churn_cleaned
+WHERE churn = 'No';
+
+-- Historical churn rate
 SELECT 
     ROUND(
         COUNT(*) FILTER (WHERE churn = 'Yes') * 100.0 
@@ -16,27 +23,12 @@ SELECT
     ) AS churn_rate
 FROM churn_cleaned;
 
--- Revenue at risk
-SELECT 
-    SUM(monthly_charges) AS monthly_revenue_at_risk
+-- Monthly charges from churned customers (historical)
+SELECT SUM(monthly_charges) AS monthly_charges_churned
 FROM churn_cleaned
 WHERE churn = 'Yes';
 
--- Churn by contract
-SELECT
-    contract,
-    COUNT(*) AS customers,
-    ROUND(
-        COUNT(*) FILTER (WHERE churn='Yes') * 100.0 / COUNT(*),
-        2
-    ) AS churn_rate
+-- Active monthly revenue
+SELECT SUM(monthly_charges) AS active_monthly_revenue
 FROM churn_cleaned
-GROUP BY contract;
-
--- Revenue loss by segment
-SELECT
-    contract,
-    SUM(monthly_charges) AS revenue_at_risk
-FROM churn_cleaned
-WHERE churn='Yes'
-GROUP BY contract;
+WHERE churn = 'No';
