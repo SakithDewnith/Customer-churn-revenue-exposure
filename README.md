@@ -107,18 +107,6 @@ Categories within a driver do not overlap, but drivers overlap with each other, 
 
 **Dashboard:** An interactive Power BI dashboard allows users to explore each focus factor and priority segment through **churn rate, estimated monthly revenue exposure, and driver-level subcategory analysis**.
 
-
-<br>
-<p align="center">
-  <img 
-    width="600" 
-    height="390" 
-    alt="image" 
-    src="https://github.com/user-attachments/assets/bfd72051-6f91-42f8-b359-b5d5cde2dc38"
-  />
-</p>
-<br>
-
 ## Business Recommended Actions
 
 These are **hypotheses to test**, not proven fixes. Cost and feasibility were not assessed.
