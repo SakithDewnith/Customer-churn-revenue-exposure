@@ -1,38 +1,26 @@
 # Customer Churn & Revenue Exposure Analytics
-🚀 
 
-## Power BI Dashboard
-
-The Power BI dashboard provides an interactive view of customer churn, estimated monthly revenue exposure, priority segments, and associated churn patterns.
-
-![Customer Retention & Churn Risk Analytics Dashboard](dashboard/customer-churn-dashboard.png)
-
-> **Power BI file:** [`Customer-Churn-Dashboard.pbix`](dashboard/Customer-Churn-Dashboard.pbix)
-
-
-## Dashboard Screenshots
-
-<table>
-  <tr>
-    <td align="center"><b>Overview</b></td>
-    <td align="center"><b>Contract Analysis</b></td>
-    <td align="center"><b>Internet Analysis</b></td>
-    <td align="center"><b>Payment Analysis</b></td>
-  </tr>
-  <tr>
-    <td><img src="c:\Users\ASUS\OneDrive - sci.sjp.ac.lk\Pictures\Screenshots\Screenshot (73).png" width="220"></td>
-    <td><img src="c:\Users\ASUS\OneDrive - sci.sjp.ac.lk\Pictures\Screenshots\Screenshot (74).png" width="220"></td>
-    <td><img src="c:\Users\ASUS\OneDrive - sci.sjp.ac.lk\Pictures\Screenshots\Screenshot 2026-10-10 154143.png" width="220"></td>
-    <td><img src="c:\Users\ASUS\OneDrive - sci.sjp.ac.lk\Pictures\Screenshots\Screenshot 2026-10-10 161258.png" width="220"></td>
-  </tr>
-</table>
-
-
-
-
+### Dashboard Images (Power BI)
+<p align="center">
+  <table>
+    <tr>
+      <td align="center"><b>Default</b></td>
+      <td align="center"><b>Contract Analysis</b></td>
+      <td align="center"><b>Internet Analysis</b></td>
+      <td align="center"><b>Payment Analysis</b></td>
+    </tr>
+    <tr>
+      <td align="center"><img src="dashboard-screenshots/default.png" width="220" alt="Dashboard Overview"></td>
+      <td align="center"><img src="dashboard-screenshots/contract-analysis.png" width="220" alt="Contract Analysis"></td>
+      <td align="center"><img src="dashboard-screenshots/internet-analysis.png" width="220" alt="Internet Analysis"></td>
+      <td align="center"><img src="dashboard-screenshots/payment-analysis.png" width="220" alt="Payment Analysis"></td>
+    </tr>
+  </table>
+</p>
 
 The `.pbix` file is included in the repository for review and can be opened in **Power BI Desktop**.
-
+<br>
+<br>
 
 ## Executive Summary
 Customer churn is a common problem for telecom businesses. A high churn rate tells there is a problem, but it doesn't tell us where the biggest impact is. The business needs to know which customer groups have the highest potential revenue exposure so retention efforts can be focused where they matter most.
@@ -71,9 +59,12 @@ Workflow:
 </p>
 
 <br>
-  
+<br> 
+
 ## Business Problem:
 Customer retention is essential for this telecom company, since recurring monthly charges are directly tied to revenue. With a limited retention budget, **which customer segments have the highest churn, where is the most revenue at risk, and what should we focus on first?**
+<br>
+<br>
 
 ## Methodology
 1. **Clean and prepare** the data with SQL and Python (Pandas).
@@ -99,6 +90,8 @@ Customer retention is essential for this telecom company, since recurring monthl
 7. **Visualize** the results in an interactive Power BI dashboard.
 
 **Estimated monthly revenue exposure** = active monthly revenue × historical churn rate of the group.
+<br>
+<br>
 
 ## Skills:
 **SQL**: PostgreSQL, Data exploration(EDA), data cleaning, validation checks, aggregation, conditional aggregation (FILTER), GROUP BY analysis, calculated metrices
@@ -106,6 +99,8 @@ Customer retention is essential for this telecom company, since recurring monthl
 **Python**: Pandas, Matplotlib, SciPy and scikit-learn (Cramér's V, logistic regression cross-check), customer segmentation, factor screening, churn analysis, revenue exposure estimation, driver analysis, data visualization
 
 **Power BI**: DAX measures, data modeling, interactive filtering, KPI cards, data visualization
+<br>
+<br>
 
 ## Results:
 **Overall:** Of 7,043 customers, **26.5%** had churned, with **$139.1K** in monthly charges from churned customers.
@@ -144,7 +139,10 @@ Contract Type showed the widest churn gap, ranging from 2.83% for Two-year contr
 
 The same customer can appear in more than one row, because the groups and their subgroups overlap, so the revenue amounts are **not added together**. These are patterns associated with higher churn, not proven causes.
 
-**Dashboard:** An interactive Power BI dashboard allows users to explore each focus factor and priority segment through **churn rate, estimated monthly revenue exposure, and driver-level subcategory analysis**.
+**Dashboard:** 
+An interactive Power BI dashboard allows users to explore each focus factor and priority segment through **churn rate, estimated monthly revenue exposure, and driver-level subcategory analysis**.
+<br>
+<br>
 
 ## Business Recommended Actions
 
@@ -159,6 +157,8 @@ The following are proposed actions based on the analysis and have not been teste
 | Fiber optic customers using paperless billing | Investigate further before targeting this group, as its churn rate is only slightly above the segment average. |
 
 **First step:** Pilot a contract-switching offer for month-to-month customers using fiber optic internet over 2–3 months. Compare their churn with a similar group that does not receive the offer. Expand the offer only if the reduction in churn generates enough additional revenue to justify the cost.
+<br>
+<br>
 
 ## Limitations
 - Findings are descriptive and show association, not cause.
