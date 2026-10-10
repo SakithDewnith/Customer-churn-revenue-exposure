@@ -1,5 +1,5 @@
 # Customer Churn & Revenue Exposure Analytics
-🚀 Live Demo: https://sakith-churn-analysis-dashboard.streamlit.app/
+🚀 
 
 ## Power BI Dashboard
 
@@ -8,6 +8,28 @@ The Power BI dashboard provides an interactive view of customer churn, estimated
 ![Customer Retention & Churn Risk Analytics Dashboard](dashboard/customer-churn-dashboard.png)
 
 > **Power BI file:** [`Customer-Churn-Dashboard.pbix`](dashboard/Customer-Churn-Dashboard.pbix)
+
+
+## Dashboard Screenshots
+
+<table>
+  <tr>
+    <td align="center"><b>Overview</b></td>
+    <td align="center"><b>Contract Analysis</b></td>
+    <td align="center"><b>Internet Analysis</b></td>
+    <td align="center"><b>Payment Analysis</b></td>
+  </tr>
+  <tr>
+    <td><img src="c:\Users\ASUS\OneDrive - sci.sjp.ac.lk\Pictures\Screenshots\Screenshot (73).png" width="220"></td>
+    <td><img src="c:\Users\ASUS\OneDrive - sci.sjp.ac.lk\Pictures\Screenshots\Screenshot (74).png" width="220"></td>
+    <td><img src="c:\Users\ASUS\OneDrive - sci.sjp.ac.lk\Pictures\Screenshots\Screenshot 2026-10-10 154143.png" width="220"></td>
+    <td><img src="c:\Users\ASUS\OneDrive - sci.sjp.ac.lk\Pictures\Screenshots\Screenshot 2026-10-10 161258.png" width="220"></td>
+  </tr>
+</table>
+
+
+
+
 
 The `.pbix` file is included in the repository for review and can be opened in **Power BI Desktop**.
 
