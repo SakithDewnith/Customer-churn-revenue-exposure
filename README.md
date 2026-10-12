@@ -23,73 +23,47 @@ The `.pbix` file is included in the repository for review and can be opened in *
 <br>
 
 ## Executive Summary
-Customer churn is a common problem for telecom businesses. A high churn rate tells there is a problem, but it doesn't tell us where the biggest impact is. The business needs to know which customer groups have the highest potential revenue exposure so retention efforts can be focused where they matter most.
+Customer churn affects recurring revenue, but the overall churn rate alone does not show where retention efforts could have the greatest business impact.
 
-Using **SQL, Python (Pandas), and Power BI**, I analyzed 7,043 customer records and found that 26.5% of customers had already churned.
+Using **SQL, Python (Pandas), and Power BI**, I analyzed 7,043 customer records and found that 26.5% of customers had already churned. I then screened 17 customer attributes based on churn patterns, estimated monthly revenue exposure, group size, and actionability. This led to three focus factors: **Contract Type, Internet Service, and Payment Behaviour**.
 
-I then screened **17 customer attributes across their different customer groups** to find the areas showing the strongest churn patterns and potential revenue impact. This narrowed the analysis to **Contract Type, Internet Service, and Payment Behaviour**.
-
-Next, I identified the priority segment within each of these three areas and estimated the potential monthly revenue exposure among their active customers.
-
-Finally, I examined each priority segment from different angles by selecting one customer characteristic at a time, comparing each subgroup’s churn rate with the overall churn rate of that priority segment, and estimating the monthly revenue exposure for each subgroup.
-
-
-Key focus areas include:
-
-- Understand past customer churn and identify the groups with the highest churn rates
-
-- Estimate potential monthly revenue exposure among currently active customers
-
-- Investigate the customer characteristics associated with higher churn and revenue exposure
-
-- Highlight retention opportunities based on potential business impact
+For each factor, I selected a priority segment for deeper analysis, identified subgroups with elevated churn, and ranked the qualifying subgroups by estimated monthly revenue exposure to highlight potential retention opportunities.
   
 <br>
 
-Workflow:
-  
-<br>
-  <p align="center">
-  <img 
-    width="524" 
-    height="100" 
-    alt="Gemini_Generated_Image_g3te9bg3te9bg3te" 
-    src="https://github.com/user-attachments/assets/24c919d4-67e4-425a-9e02-b8e4f0eb60e8"
-  />
+**Workflow:**
+<p align="center">
+<img width="624" height="100" alt="Create_workflow_diagram_for_analysis" src="https://github.com/user-attachments/assets/4f6dbc6c-36c9-4795-8a46-e55e23a06726" />
 </p>
 
-<br>
 <br> 
 
 ## Business Problem:
-Customer retention is essential for this telecom company, since recurring monthly charges are directly tied to revenue. With a limited retention budget, **which customer segments have the highest churn, where is the most revenue at risk, and what should we focus on first?**
+Customer churn threatens recurring revenue, but limited retention resources make it important to identify where retention efforts could have the greatest potential business impact. The business needs to understand which customer segments have higher churn, estimate their potential monthly revenue exposure, and prioritize segments for further investigation.
 <br>
 <br>
 
 ## Methodology
-1. **Clean and prepare** the data with SQL and Python (Pandas).
+1. **Data Preperation:** Cleaned and validated the 7,043 customer records using SQL (PostgreSQL) and Python (Pandas).
 
-2. **Screen factors** by apply four screening criteria
-      - **Churn gap:** highest minus lowest category churn rate (cutoff: 30 points),
-      - **Revenue exposure:** the highest category's estimated monthly exposure (cutoff: $40K),
-      - **Group size:** every category has at least 682 customers, so small groups do not distort the results, and
-      - **Actionability:** whether the company can act on it.
+2. **Factors Screening:** Screened 17 customer attributes using churn-rate differences, estimated monthly revenue exposure, group size, and business actionability.
 
-3. **Validate findings** Cross-checked the screening results using Cramér's V and a logistic regression (permutation importance).
+3. **Validation:** Used Cramér's V to assess associations between customer attributes and churn, and logistic regression permutation importance to evaluate predictive relevance. These methods supported the analysis but did not establish causation.
 
-4. **Select focus factors** Selected one factor from each business area based on the evidence and its potential for business action.
+4. **Prioritization:** Selected three focus factors—Contract Type (Month-to-month), Internet Service (Fiber optic), and Payment Behaviour (Electronic check)—for deeper analysis.
 
-5. **Prioritize one segment** within each focus factor using churn rate, active customers, and active revenue.
+5. **Driver analysis:** Examined one customer characteristic at a time within each priority segment. Subgroups needed at least 100 customers and a 95% confidence interval for their churn rate entirely above the corresponding priority segment's churn rate. Gender, Senior Citizen, Partner, and Dependents were excluded from actionable driver rankings. Qualifying subgroups were ranked by estimated monthly revenue exposure, with the top three reported for each priority segment.
 
-6. **Run a driver analysis**
-   - **Benchmark:** Compared each subgroup’s churn rate with its priority segment’s overall churn rate.
-   - **Selection criteria:** Retained subgroups with at least 100 customers, a 95% confidence interval entirely above the segment’s churn rate, and actionable characteristics. Excluded Gender, Senior Citizen, Partner, and Dependents.
-   - **Ranking:** Ranked qualifying subgroups by estimated monthly revenue exposure and reported the top three per segment. This reflects revenue exposure, not driver importance.
-   - **Double-counting:** Exposure values should not be added together because customers may appear in subgroups across different drivers.
+6. **Dashboard Development:** Built an interactive Power BI dashboard to explore churn patterns and estimated monthly revenue exposure.
+<br>
 
-7. **Visualize** the results in an interactive Power BI dashboard.
+### Metric Definition
 
-**Estimated monthly revenue exposure** = active monthly revenue × historical churn rate of the group.
+Estimated monthly revenue exposure was calculated as:
+
+Active monthly revenue × historical churn rate of the group
+
+This estimate uses historical churn patterns to screen potential exposure among active customers; it is not a forecast of actual future losses.
 <br>
 <br>
 
@@ -103,22 +77,23 @@ Customer retention is essential for this telecom company, since recurring monthl
 <br>
 
 ## Results:
-**Overall:** Of 7,043 customers, **26.5%** had churned, with **$139.1K** in monthly charges from churned customers.
+**Overall:** 
+
+Of 7,043 customers, **26.5%** had churned, with **$139.1K** in monthly charges from churned customers.
 
 After screening 17 customer attributes, **Contract Type, Internet Service, and Payment Behaviour** were selected based on their churn patterns and potential revenue impact. 
 
-Contract Type showed the widest churn gap, ranging from 2.83% for Two-year contracts to 42.71% for Month-to-month contracts.
-
-**Priority segments:** 
+**Priority Segment Findings:** 
 | Focus Factor | Priority Segment | Churn Rate | Active Customers | Est. Monthly Exposure |
 |---|---|---:|---:|---:|
 | Contract Type | Month-to-month | 42.71% | 2,220 | $58.3K |
 | Internet Service | Fiber optic | 41.89% | 1,799 | $70.8K |
 | Payment Behaviour | Electronic check | 45.29% | 1,294 | $43.5K |
 
-- Exposure figures are shown separately for each focus factor and may overlap because the same customer can belong to multiple priority segments. They should not be added together.
+**Driver Analysis Findings:** 
 
-**Driver analysis:** 
+The following subgroups had elevated churn rates within their corresponding priority segments and were ranked by estimated monthly revenue exposure.
+
 | Group | Subgroup inside it | Share who left | Higher than the group by | Monthly revenue at stake |
 |---|---|---:|---:|---:|
 | **Month-to-month** (43% left) | Without Tech Support | 50% | 1.18× | about $46.9K |
@@ -131,6 +106,7 @@ Contract Type showed the widest churn gap, ranging from 2.83% for Two-year contr
 | | Using paperless billing | 50% | 1.10× | about $34.3K |
 | | Without Online Security | 53% | 1.17× | about $33.5K |
 
+Relative churn compares a subgroup's churn rate with its corresponding priority segment's churn rate. For example, 1.20× means 20% higher than the segment average. Revenue exposure is an estimate, not a forecast, and subgroup estimates may overlap.
 
 - **Month-to-month:** Customers without Tech Support have the highest estimated revenue exposure ($46.9K/month), while customers using fiber optic internet have the highest churn rate (55%).
 - **Fiber optic:** Customers using paperless billing have the highest exposure ($55.9K/month), while customers without Online Security or Tech Support also show higher churn.
@@ -140,6 +116,8 @@ Contract Type showed the widest churn gap, ranging from 2.83% for Two-year contr
 The same customer can appear in more than one row, because the groups and their subgroups overlap, so the revenue amounts are **not added together**. These are patterns associated with higher churn, not proven causes.
 
 **Dashboard:** 
+
+
 An interactive Power BI dashboard allows users to explore each focus factor and priority segment through **churn rate, estimated monthly revenue exposure, and driver-level subcategory analysis**.
 <br>
 <br>
@@ -162,6 +140,7 @@ The following are proposed actions based on the analysis and have not been teste
 
 ## Limitations
 - Findings are descriptive and show association, not cause.
-- Estimated exposure applies each group's **historical churn rate, held constant**, to today's active customers. It is an estimate, not a forecast, because future churn may differ.
-- - Thresholds (100 customers, 95% interval, $40K, 30 points) are chosen screening rules, not universal standards.
+- Estimated exposure applies each group's **historical churn rate, held constant**, to today's active customers.
+- Estimated exposure is an estimate, not a forecast, because future churn may differ.
+- Thresholds (100 customers, 95% interval, 30 points) are chosen screening rules, not universal standards.
 - Cost and feasibility of the recommended actions were not assessed.
