@@ -43,6 +43,15 @@ Customer churn threatens recurring revenue, but limited retention resources make
 <br>
 <br>
 
+## Skills:
+**SQL**: PostgreSQL, Data exploration(EDA), data cleaning, validation checks, aggregation, conditional aggregation (FILTER), GROUP BY analysis, calculated metrices
+
+**Python**: Pandas, Matplotlib, SciPy and scikit-learn (Cramér's V, logistic regression cross-check), customer segmentation, factor screening, churn analysis, revenue exposure estimation, driver analysis, data visualization
+
+**Power BI**: DAX measures, data modeling, interactive filtering, KPI cards, data visualization
+<br>
+<br>
+
 ## Methodology
 1. **Data Preperation:** Cleaned and validated the 7,043 customer records using SQL (PostgreSQL) and Python (Pandas).
 
@@ -64,15 +73,6 @@ Estimated monthly revenue exposure was calculated as:
 Active monthly revenue × historical churn rate of the group
 
 This estimate uses historical churn patterns to screen potential exposure among active customers; it is not a forecast of actual future losses.
-<br>
-<br>
-
-## Skills:
-**SQL**: PostgreSQL, Data exploration(EDA), data cleaning, validation checks, aggregation, conditional aggregation (FILTER), GROUP BY analysis, calculated metrices
-
-**Python**: Pandas, Matplotlib, SciPy and scikit-learn (Cramér's V, logistic regression cross-check), customer segmentation, factor screening, churn analysis, revenue exposure estimation, driver analysis, data visualization
-
-**Power BI**: DAX measures, data modeling, interactive filtering, KPI cards, data visualization
 <br>
 <br>
 
